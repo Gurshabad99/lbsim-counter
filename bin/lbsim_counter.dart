@@ -55,20 +55,26 @@ void main(List<String> arguments) {
     print('starting counter with value: ${lbsimCounter.count}');
 
     switch (function) {
-      case 0:
+      case 0: //print
         print(lbsimCounter.count);
         break;
-      case 1:
+      case 1:  //increment value
         incrementCounter(counter: lbsimCounter, incrementValue: operationValue);
         break;
-      case 2:
+      case 2:  //decrement value
         decrementCounter(counter: lbsimCounter, decrementValue: operationValue);
         break;
-      case 3:
+      case 6: //change username
         changeUserName(counter: lbsimCounter);
         break;
-      case 5:
+      case 10: //stop operation
         stop = true;
+        break;
+      case 3: //multiply
+        multiply(counter: lbsimCounter, multiplication: operationValue);
+        break;
+      case 4:  //divide
+        divide(counter: lbsimCounter, division: operationValue);
         break;
       default:
         print('Are kuch to kr');
@@ -98,6 +104,16 @@ void decrementCounter(
     {required LBSIMCounter counter, required int decrementValue}) {
   counter.count = counter.count + decrementValue;
 }
+void multiply(
+    {required LBSIMCounter counter, required int multiplication}){
+  counter.count=counter.count * multiplication;
+}
+void divide(
+    {required LBSIMCounter counter, required int division}){
+  counter.count=(counter.count / division) as int;
+}
+
+
 
 class LBSIMCounter {
   int count;
